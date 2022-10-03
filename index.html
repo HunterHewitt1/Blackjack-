@@ -12,25 +12,30 @@
 
 <body>
   <h1 class="title" id="title">Blackjack</h1>
+
+  <!-- Player Hand VS Computer Hand -->
+  <table id="displayHands">
+    <tr>
+      <th id="playersHand">Your Hand</th>
+      <th id="dealerHand">Dealer's Hand</th>
+    </tr>
+    <tr>
+      <th id="playersCards">Your Cards</th>
+      <th id="dealersCards">Dealer's Cards</th>
+    </tr>
+  </table>
   <!-- Status / Prompts / Update Box -->
   <div class="updateText" id="updateText">
-    Select "New Game"
-  </div>
-  <!-- Player Hand VS Computer Hand -->
-  <div id="displayHands">
-    <div id="playersHand">Your Hand</div>
-    <div id="playersCards">Your Cards</div>
-    <div id="dealerHand">Dealer's Hand</div>
-    <div id="dealersCards">Dealer's Cards</div>
+    Select "New Game" to start playing!
   </div>
   <!-- Buttons -->
-  <div class="buttons" id="buttons">
+  <div class="buttonGroup" id="buttons">
     <button id="hit">Hit</button>
     <button id="stand">Stand</button>
     <button id="newGame">New Game</button>
   </div>
   <!-- Wins & Losses Tracker -->
-  <div>Wins: 0 Losses: 0 Draw: 0</div>
+  <div></div>
 
 
 
