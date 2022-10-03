@@ -32,6 +32,8 @@ The browser will prompt the player with a begin game button, after clicking, the
 
 #### Trello Board: [Trello](https://trello.com/b/q2HytwBY/blackjack)
 
-#### Building a browser game Lesson [GitHub](https://github.com/SEI-R-9-19/u1_project_prompt/blob/main/README.md)
+#### Building a browser game Lesson: [GitHub](https://github.com/SEI-R-9-19/u1_project_prompt/blob/main/README.md)
+
+#### Table Refrence: [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces)
 
 ---
