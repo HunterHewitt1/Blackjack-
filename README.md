@@ -37,4 +37,6 @@ The browser will prompt the player with a begin game button, after clicking, the
 #### Table Refrence: [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces)
 
 ### Shuffle Card [Programiz](https://www.programiz.com/javascript/examples/shuffle-card)
+
+
 ---

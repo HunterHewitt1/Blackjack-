@@ -21,7 +21,16 @@ table {
   height: 200px;
   width: 600px;
   border: 3px solid green;
-  display: table;
+}
+
+.player {
+  display: grid;
+  justify-items: start;
+}
+
+.dealer {
+  display: grid;
+  justify-items: self-end;
 }
 
 .buttonGroup {

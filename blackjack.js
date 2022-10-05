@@ -1,4 +1,4 @@
-let suits = ['♠️', '♥️', '♦️', '♣️']
+let suits = ['Spades ♠️', 'Hearts ♥️', 'Diamonds ♦️', 'Clubs ♣️']
 let values = [
   '2',
   '3',
@@ -19,6 +19,7 @@ let newGameBtn = document.getElementById('newgame')
 let hitBtn = document.getElementById('hit')
 let standBtn = document.getElementById('stand')
 let playerHand = document.getElementById('playersHand')
+let playerHand2 = document.getElementById('playersHand2')
 
 const newGame = () => {
   newGameBtn.addEventListener('click', newDeck)
@@ -40,9 +41,19 @@ const testFunction = () => {
 
   for (let i = 0; i < 2; i++) {
     let playerReturn = [`${deck[i].Value} of ${deck[i].Suit}`]
-    playerHand.innerHTML = playerReturn
-    console.log(playerReturn)
+      if (i == 0) {
+        playerHand.innerHTML = playerReturn
+        console.log(i)
+      } else{
+        playerHand2.innerHTML = playerReturn
+        console.log(i)
+      }
+    // console.log(playerReturn)
+    console.log(i)
   }
 }
 testFunction()
+
 const startGame = () => {}
+
+
