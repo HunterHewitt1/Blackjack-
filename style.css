@@ -25,12 +25,12 @@ table {
 
 .player {
   display: grid;
-  justify-items: start;
+  justify-items: end;
 }
 
 .dealer {
   display: grid;
-  justify-items: self-end;
+  justify-items: start;
 }
 
 .buttonGroup {

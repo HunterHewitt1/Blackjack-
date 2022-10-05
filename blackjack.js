@@ -21,24 +21,28 @@ let standBtn = document.getElementById('stand')
 let playerHand = document.getElementById('playersHand')
 let playerHand2 = document.getElementById('playersHand2')
 
-const newGame = () => {
-  newGameBtn.addEventListener('click', newDeck)
-}
-const testFunction = () => {
+
+// newGameBtn.addEventListener("click", testFunction);
+// const newGame = () => {
+//   newGameBtn.addEventListener('click', newDeck)
+// }
+const buildDeck = () => {
   for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
       let card = { Value: values[x], Suit: suits[i] }
       deck.push(card)
     }
   }
-
+}
+const randomDeck = () => {
   for (let i = deck.length - 1; i > 0; i--) {
     let a = Math.floor(Math.random() * i)
     let temp = deck[i]
     deck[i] = deck[a]
     deck[a] = temp
   }
-
+}
+const displayPlayerCards = () => {
   for (let i = 0; i < 2; i++) {
     let playerReturn = [`${deck[i].Value} of ${deck[i].Suit}`]
       if (i == 0) {
@@ -48,12 +52,30 @@ const testFunction = () => {
         playerHand2.innerHTML = playerReturn
         console.log(i)
       }
-    // console.log(playerReturn)
-    console.log(i)
   }
 }
-testFunction()
-
-const startGame = () => {}
-
+const displayDealerCards = () => {
+  for (let i = 0; i < 2; i++) {
+    let playerReturn = [`${deck[i].Value} of ${deck[i].Suit}`]
+      if (i == 0) {
+        dealerHand.innerHTML = playerReturn
+        console.log(i)
+      } else{
+        dealerHand2.innerHTML = playerReturn
+        console.log(i)
+      }
+  }
+}
+const dealPlayerCards = () => {
+  buildDeck()
+  randomDeck()
+  displayPlayerCards()
+}
+dealPlayerCards()
+const dealDealerCards = () => {
+  buildDeck()
+  randomDeck()
+  displayDealerCards()
+}
+dealDealerCards()
 
