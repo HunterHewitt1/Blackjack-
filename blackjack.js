@@ -15,7 +15,7 @@ let values = [
   'Ace'
 ]
 let deck = []
-let newGameBtn = document.getElementById('newgame')
+let newGameBtn = document.getElementById('newGame')
 let hitBtn = document.getElementById('hit')
 let standBtn = document.getElementById('stand')
 let playerHand = document.getElementById('playersHand')
@@ -66,16 +66,22 @@ const displayDealerCards = () => {
       }
   }
 }
+const hitMe = () => {}
 const dealPlayerCards = () => {
   buildDeck()
   randomDeck()
   displayPlayerCards()
 }
-dealPlayerCards()
 const dealDealerCards = () => {
   buildDeck()
   randomDeck()
   displayDealerCards()
 }
-dealDealerCards()
+let newGameStart = newGameBtn.addEventListener("click", ()=> {
+  dealDealerCards()
+  dealPlayerCards()
+})
+
+
+
 
