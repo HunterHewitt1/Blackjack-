@@ -20,7 +20,12 @@ let hitBtn = document.getElementById('hit')
 let standBtn = document.getElementById('stand')
 let playerHand = document.getElementById('playersHand')
 let playerHand2 = document.getElementById('playersHand2')
-
+let playerHand3 = document.getElementById('playersHand3')
+let playerHand4 = document.getElementById('playersHand4')
+let dealerHand = document.getElementById('dealerHand')
+let dealerHand2 = document.getElementById('dealerHand2')
+let player = 1
+let playerCount = 3
 
 // newGameBtn.addEventListener("click", testFunction);
 // const newGame = () => {
@@ -43,43 +48,53 @@ const randomDeck = () => {
   }
 }
 const displayPlayerCards = () => {
-  for (let i = 0; i < 2; i++) {
-    let playerReturn = [`${deck[i].Value} of ${deck[i].Suit}`]
-      if (i == 0) {
-        playerHand.innerHTML = playerReturn
-        console.log(i)
-      } else{
-        playerHand2.innerHTML = playerReturn
-        console.log(i)
-      }
-  }
+  let card1 = deck.shift()
+  let card2 = deck.shift()
+  let playerReturn1= `${card1.Value} of ${card1.Suit}`
+  let playerReturn2 = `${card2.Value} of ${card2.Suit}`
+  playerHand.innerHTML = playerReturn1
+  playerHand2.innerHTML = playerReturn2
 }
 const displayDealerCards = () => {
-  for (let i = 0; i < 2; i++) {
-    let playerReturn = [`${deck[i].Value} of ${deck[i].Suit}`]
-      if (i == 0) {
-        dealerHand.innerHTML = playerReturn
-        console.log(i)
-      } else{
-        dealerHand2.innerHTML = playerReturn
-        console.log(i)
-      }
-  }
+  let card1 = deck.shift()
+  let card2 = deck.shift()
+  let dealerReturn1 = `${card1.Value} of ${card1.Suit}`
+  let dealerReturn2 = `${card2.Value} of ${card2.Suit}`
+  dealerHand.innerHTML = dealerReturn1
+  dealerHand2.innerHTML = dealerReturn2
+
 }
-const hitMe = () => {}
+const hit1Player = () => {
+  let card = deck.shift()
+  let cardReturn = `${card.Value} of ${card.Suit}`
+  document.getElementById(`playersHand${playerCount}`).innerHTML = cardReturn
+  playerCount++
+}
+const hitMePlayer = () => {
+  // buildDeck()
+  // randomDeck()
+  hit1Player()
+}
+
 const dealPlayerCards = () => {
-  buildDeck()
-  randomDeck()
+  // buildDeck()
+  // randomDeck()
   displayPlayerCards()
 }
 const dealDealerCards = () => {
-  buildDeck()
-  randomDeck()
+  // buildDeck()
+  // randomDeck()
   displayDealerCards()
 }
 let newGameStart = newGameBtn.addEventListener("click", ()=> {
+  buildDeck()
+  randomDeck()
   dealDealerCards()
   dealPlayerCards()
+  
+})
+let playerHit = hitBtn.addEventListener("click",()=>{
+  hitMePlayer()
 })
 
 

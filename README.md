@@ -38,5 +38,5 @@ The browser will prompt the player with a begin game button, after clicking, the
 
 ### Shuffle Card [Programiz](https://www.programiz.com/javascript/examples/shuffle-card)
 
-
+### Grid Guide [CSS-Tricks] (https://css-tricks.com/snippets/css/complete-guide-grid/)
 ---
