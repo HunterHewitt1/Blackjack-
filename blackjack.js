@@ -18,6 +18,9 @@ let deck = []
 let newGameBtn = document.getElementById('newGame')
 let hitBtn = document.getElementById('hit')
 let standBtn = document.getElementById('stand')
+let updateText = document.getElementById("updateText")
+let playersCards = document.getElementById("playersCards")
+let dealersCards = document.getElementById("dealersCards")
 let playerHand = document.getElementById('playersHand')
 let playerHand2 = document.getElementById('playersHand2')
 let playerHand3 = document.getElementById('playersHand3')
@@ -25,12 +28,10 @@ let playerHand4 = document.getElementById('playersHand4')
 let dealerHand = document.getElementById('dealerHand')
 let dealerHand2 = document.getElementById('dealerHand2')
 let player = 1
+let playerScore = 0
+let dealerScore = 0
 let playerCount = 3
-
-// newGameBtn.addEventListener("click", testFunction);
-// const newGame = () => {
-//   newGameBtn.addEventListener('click', newDeck)
-// }
+//Functions
 const buildDeck = () => {
   for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
@@ -54,6 +55,8 @@ const displayPlayerCards = () => {
   let playerReturn2 = `${card2.Value} of ${card2.Suit}`
   playerHand.innerHTML = playerReturn1
   playerHand2.innerHTML = playerReturn2
+  let sumCards = `${card1}`
+  updateText.innerHTML = sumCards
 }
 const displayDealerCards = () => {
   let card1 = deck.shift()
@@ -62,7 +65,6 @@ const displayDealerCards = () => {
   let dealerReturn2 = `${card2.Value} of ${card2.Suit}`
   dealerHand.innerHTML = dealerReturn1
   dealerHand2.innerHTML = dealerReturn2
-
 }
 const hit1Player = () => {
   let card = deck.shift()
@@ -70,32 +72,61 @@ const hit1Player = () => {
   document.getElementById(`playersHand${playerCount}`).innerHTML = cardReturn
   playerCount++
 }
-const hitMePlayer = () => {
-  // buildDeck()
-  // randomDeck()
-  hit1Player()
-}
+const switchPlayer = () => {
 
-const dealPlayerCards = () => {
-  // buildDeck()
-  // randomDeck()
-  displayPlayerCards()
 }
-const dealDealerCards = () => {
-  // buildDeck()
-  // randomDeck()
-  displayDealerCards()
+const numericValue = (cards) => {
+  switch (cards.value) {
+    case "Ace":
+      return 1;
+    case "Two":
+      return 2;
+    case "Three":
+      return 3;
+    case "Four":
+      return 4;
+    case "Five":
+      return 5;
+    case "Six":
+      return 6;
+    case "Seven":
+      return 7;
+    case "Eight":
+      return 8;
+    case "Nine":
+      return 9;
+    default:
+      return 10;
+  }
 }
+const sumScore = (cardArray) => {
+  let score = 0 
+  for (let i = 0; i < cardArray.length; i++) {
+    let cards = cardArray[i]
+    score += numericValue(cards)
+  }
+  dealerScore = sumScore(dealerHand)
+  playerScore = sumScore(playerHand)
+}
+//Event Listeners
 let newGameStart = newGameBtn.addEventListener("click", ()=> {
   buildDeck()
   randomDeck()
-  dealDealerCards()
-  dealPlayerCards()
-  
+  displayDealerCards()
+  displayPlayerCards()
 })
 let playerHit = hitBtn.addEventListener("click",()=>{
-  hitMePlayer()
+  hit1Player()
+  console.log("test hit")
 })
+let playerStand = standBtn.addEventListener("click", ()=>{
+  player--
+  if (player === 0) {
+    //if statment here to check hit or not
+  }
+})
+//InnerText
+playersCards.innerText = "Player has:" + playerScore
 
 
 
