@@ -88,8 +88,8 @@ const hit1Dealer = () => {
     document.getElementById(`dealerHand${dealerCount}`).innerHTML = cardReturn
     dealerCount++
     sumScoreDealer()
-    winnerConditions()
     bustCondition()
+    winnerConditions()
   }
 }
 const sumScorePlayer = () => {
