@@ -75,10 +75,14 @@ const hit1Player = () => {
   let cardReturn = `${card.Value} of ${card.Suit}`
   document.getElementById(`playersHand${playerCount}`).innerHTML = cardReturn
   playerCount++
-  sumScore()
+  sumScorePlayer()
 }
-const switchPlayer = () => {
-
+const hit1Dealer = () => {
+  let card = deck.shift()
+  let cardReturn = `${card.Value} of ${card.Suit}`
+  document.getElementById(`dealersHand${dealerCount}`).innerHTML = cardReturn
+  dealerCount++
+  sumScoreDealer()
 }
 const numericValue = (cards) => {
   switch (cards.value) {
@@ -110,7 +114,7 @@ const sumScorePlayer = () => {
     if (parseInt(testPlayer[i].innerHTML.substring(0,2)) > 0){
       sum += parseInt(testPlayer[i].innerHTML.substring(0,2))
       playerScore = sum
-      playersCards.innerText = "Player has:" + playerScore
+      playersCards.innerText = "Player has: " + playerScore
       console.log(playerScore)
     }
     else {
@@ -120,12 +124,12 @@ const sumScorePlayer = () => {
 }
 const sumScoreDealer = () => {
   let sum = 0
-  for (let i = 0; i < testPlayer.length; i++) {
-    if (parseInt(testPlayer[i].innerHTML.substring(0,2)) > 0){
-      sum += parseInt(testPlayer[i].innerHTML.substring(0,2))
-      playerScore = sum
-      playersCards.innerText = "Player has:" + playerScore
-      console.log(playerScore)
+  for (let i = 0; i < testDealer.length; i++) {
+    if (parseInt(testDealer[i].innerHTML.substring(0,2)) > 0){
+      sum += parseInt(testDealer[i].innerHTML.substring(0,2))
+      dealerScore = sum
+      dealersCards.innerText = "Dealer has: " + dealerScore
+      console.log(dealerScore)
     }
     else {
       break;
