@@ -9,22 +9,24 @@
 ---
 
 ### **_Description_**
-Blackjack will consist of a player versus computer section as well as a tracker to keep score of who has won the most. 
----
+
+## Blackjack is a gambling game to see who can get closest to 21 while playing against the dealer. In this game we use a single deck of 52 card per hand. Just remember, the house always favors the dealer.
 
 ### **_How To Get Started_**
-The browser will prompt the player with a begin game button, after clicking, the dealer will deal 2 random cards to you and to the house. The player will have an option to hit (get drawn another card) or to stand with the current cards dealt. The dealer must hit untill the cards they have equal a value of at least 16. The hand that is closest to 21 wins. 
 
+The browser will prompt the player with a begin game button, after clicking, the dealer will deal 2 random cards to you and to the house. The player will have an option to hit (get drawn another card) or to stand with the current cards dealt. The dealer must hit untill the cards they have equal a value of at least 16. The hand that is closest to 21 wins.
 
 ---
 
-### **_Screenshots_**
+### **_The Proccess_**
 
+While working on blackjack as my first project, I encountered many roadblocks that began to discourage me. I took my time and ran into problems I have nevr experienced but i was able to work through them with persistence.
 
 ---
 
 ### **_Future Updates_**
 
+Next feature will be a betting portion of the game as well as the dealer auto drawing cards and follwing basic strategy.
 
 ---
 
@@ -39,4 +41,5 @@ The browser will prompt the player with a begin game button, after clicking, the
 ### Shuffle Card [Programiz](https://www.programiz.com/javascript/examples/shuffle-card)
 
 ### Grid Guide [CSS-Tricks] (https://css-tricks.com/snippets/css/complete-guide-grid/)
+
 ---
