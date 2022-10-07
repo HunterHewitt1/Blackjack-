@@ -18,6 +18,7 @@ let deck = []
 let newGameBtn = document.getElementById('newGame')
 let hitBtn = document.getElementById('hit')
 let standBtn = document.getElementById('stand')
+
 let updateText = document.getElementById("updateText")
 let playersCards = document.getElementById("playersCards")
 let dealersCards = document.getElementById("dealersCards")
@@ -34,6 +35,7 @@ let player = 1
 let playerScore = 0
 let dealerScore = 0
 let playerCount = 3
+let dealerCount = 3
 
 //Functions
 const buildDeck = () => {
@@ -59,8 +61,7 @@ const displayPlayerCards = () => {
   let playerReturn2 = `${card2.Value} of ${card2.Suit}`
   playerHand.innerHTML = playerReturn1
   playerHand2.innerHTML = playerReturn2
-  let sumCards = `${card1}`
-  updateText.innerHTML = sumCards
+
 }
 const displayDealerCards = () => {
   let card1 = deck.shift()
@@ -71,41 +72,25 @@ const displayDealerCards = () => {
   dealerHand2.innerHTML = dealerReturn2
 }
 const hit1Player = () => {
+  if (player === 1) {
   let card = deck.shift()
   let cardReturn = `${card.Value} of ${card.Suit}`
   document.getElementById(`playersHand${playerCount}`).innerHTML = cardReturn
   playerCount++
   sumScorePlayer()
+  playerStand
+  bustCondition()
+  }
 }
 const hit1Dealer = () => {
+  if (player === 0){
   let card = deck.shift()
   let cardReturn = `${card.Value} of ${card.Suit}`
-  document.getElementById(`dealersHand${dealerCount}`).innerHTML = cardReturn
+  document.getElementById(`dealerHand${dealerCount}`).innerHTML = cardReturn
   dealerCount++
   sumScoreDealer()
-}
-const numericValue = (cards) => {
-  switch (cards.value) {
-    case "Ace":
-      return 1;
-    case "Two":
-      return 2;
-    case "Three":
-      return 3;
-    case "Four":
-      return 4;
-    case "Five":
-      return 5;
-    case "Six":
-      return 6;
-    case "Seven":
-      return 7;
-    case "Eight":
-      return 8;
-    case "Nine":
-      return 9;
-    default:
-      return 10;
+  winnerConditions()
+  bustCondition()
   }
 }
 const sumScorePlayer = () => {
@@ -139,8 +124,14 @@ const sumScoreDealer = () => {
 const winnerConditions = () => {
   if (sumScorePlayer > sumScoreDealer && playerScore <= 21 && dealerScore <= 21) {
     updateText.innerHTML = "Player 1 Wins!"
-  }else {
-    updateText = "House Wins!"
+    
+  }else if(sumScorePlayer < sumScoreDealer && playerScore <= 21 && dealerScore <= 21) {
+    updateText.innerHTML = "Dealer Wins!"
+  }
+}
+const bustCondition = () => {
+  if (sumScorePlayer > 21 || sumScoreDealer > 21){
+    updateText.innerHTML = "BUST"
   }
 }
 //Event Listeners
@@ -155,10 +146,13 @@ let newGameStart = newGameBtn.addEventListener("click", ()=> {
 let playerHit = hitBtn.addEventListener("click",()=>{
   hit1Player()
 })
+let dealerHit = hitBtn.addEventListener("click",()=>{
+  hit1Dealer()
+})
 let playerStand = standBtn.addEventListener("click", ()=>{
-  player--
-  if (player === 0) {
-    //if statment here to check hit or not
+  if (standBtn = "click") {
+    player = 0
+    console.log(player)
   }
 })
 //InnerText
