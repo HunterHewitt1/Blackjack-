@@ -28,6 +28,8 @@ let playerHand4 = document.getElementById('playersHand4')
 let dealerHand = document.getElementById('dealerHand')
 let dealerHand2 = document.getElementById('dealerHand2')
 let testPlayer = document.querySelectorAll(".player")
+let testDealer = document.querySelectorAll(".dealer")
+
 let player = 1
 let playerScore = 0
 let dealerScore = 0
@@ -102,16 +104,39 @@ const numericValue = (cards) => {
       return 10;
   }
 }
-const sumScore = () => {
+const sumScorePlayer = () => {
+  let sum = 0
   for (let i = 0; i < testPlayer.length; i++) {
     if (parseInt(testPlayer[i].innerHTML.substring(0,2)) > 0){
-      playerScore += parseInt(testPlayer[i].innerHTML.substring(0,2))
+      sum += parseInt(testPlayer[i].innerHTML.substring(0,2))
+      playerScore = sum
       playersCards.innerText = "Player has:" + playerScore
-      console.log(playersCards)
+      console.log(playerScore)
     }
     else {
       break;
     }
+  }
+}
+const sumScoreDealer = () => {
+  let sum = 0
+  for (let i = 0; i < testPlayer.length; i++) {
+    if (parseInt(testPlayer[i].innerHTML.substring(0,2)) > 0){
+      sum += parseInt(testPlayer[i].innerHTML.substring(0,2))
+      playerScore = sum
+      playersCards.innerText = "Player has:" + playerScore
+      console.log(playerScore)
+    }
+    else {
+      break;
+    }
+  }
+}
+const winnerConditions = () => {
+  if (sumScorePlayer > sumScoreDealer && playerScore <= 21 && dealerScore <= 21) {
+    updateText.innerHTML = "Player 1 Wins!"
+  }else {
+    updateText = "House Wins!"
   }
 }
 //Event Listeners
@@ -120,7 +145,8 @@ let newGameStart = newGameBtn.addEventListener("click", ()=> {
   randomDeck()
   displayDealerCards()
   displayPlayerCards()
-  sumScore()
+  sumScorePlayer()
+  sumScoreDealer()
 })
 let playerHit = hitBtn.addEventListener("click",()=>{
   hit1Player()
