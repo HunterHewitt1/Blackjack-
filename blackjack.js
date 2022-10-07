@@ -9,10 +9,10 @@ let values = [
   '8',
   '9',
   '10',
-  'Jack (10)',
-  'Queen (10)',
-  'King (10)',
-  'Ace'
+  '10 Jack',
+  '10 Queen',
+  '10 King',
+  '1 Ace'
 ]
 let deck = []
 let newGameBtn = document.getElementById('newGame')
@@ -27,10 +27,12 @@ let playerHand3 = document.getElementById('playersHand3')
 let playerHand4 = document.getElementById('playersHand4')
 let dealerHand = document.getElementById('dealerHand')
 let dealerHand2 = document.getElementById('dealerHand2')
+let testPlayer = document.querySelectorAll(".player")
 let player = 1
 let playerScore = 0
 let dealerScore = 0
 let playerCount = 3
+
 //Functions
 const buildDeck = () => {
   for (let i = 0; i < suits.length; i++) {
@@ -71,6 +73,7 @@ const hit1Player = () => {
   let cardReturn = `${card.Value} of ${card.Suit}`
   document.getElementById(`playersHand${playerCount}`).innerHTML = cardReturn
   playerCount++
+  sumScore()
 }
 const switchPlayer = () => {
 
@@ -99,14 +102,17 @@ const numericValue = (cards) => {
       return 10;
   }
 }
-const sumScore = (cardArray) => {
-  let score = 0 
-  for (let i = 0; i < cardArray.length; i++) {
-    let cards = cardArray[i]
-    score += numericValue(cards)
+const sumScore = () => {
+  for (let i = 0; i < testPlayer.length; i++) {
+    if (parseInt(testPlayer[i].innerHTML.substring(0,2)) > 0){
+      playerScore += parseInt(testPlayer[i].innerHTML.substring(0,2))
+      playersCards.innerText = "Player has:" + playerScore
+      console.log(playersCards)
+    }
+    else {
+      break;
+    }
   }
-  dealerScore = sumScore(dealerHand)
-  playerScore = sumScore(playerHand)
 }
 //Event Listeners
 let newGameStart = newGameBtn.addEventListener("click", ()=> {
@@ -114,10 +120,10 @@ let newGameStart = newGameBtn.addEventListener("click", ()=> {
   randomDeck()
   displayDealerCards()
   displayPlayerCards()
+  sumScore()
 })
 let playerHit = hitBtn.addEventListener("click",()=>{
   hit1Player()
-  console.log("test hit")
 })
 let playerStand = standBtn.addEventListener("click", ()=>{
   player--
@@ -126,7 +132,6 @@ let playerStand = standBtn.addEventListener("click", ()=>{
   }
 })
 //InnerText
-playersCards.innerText = "Player has:" + playerScore
 
 
 
